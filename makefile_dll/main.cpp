@@ -8,6 +8,9 @@
 // dll
 // gcc -c function.cpp
 // gcc function.o -shared -fPIC -Wall -o lib_function.dll -lstdc++
+// -shared: 表示生成的是动态链接库
+// -fPIC: 生成位置独立的代码，用于编译共享库。在任意内存空间都可以被加载
+// -Wall: 生成所有警告信息
 
 
 #include <iostream>
