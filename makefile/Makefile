@@ -2,18 +2,18 @@
 # command 需要tab开头
 
 # define the target
-TARGET = main
+# TARGET = main
 
 # define the Build Directory
 BUILD_DIR = build
-OBJ_DIR = $(BUILD_DIR)/objs
+# OBJ_DIR = $(BUILD_DIR)/objs
 
-# define PATH
-LOCAL_PATH = $(shell pwd)
+# # define PATH
+# LOCAL_PATH = $(shell pwd)
 
-# define the sources and objects
-SOURCES := $(shell find $(LOCAL_PATH)/ -name "*.c")
-OBJS := $(addprefix $(OBJ_DIR)/, $(patsubst %.c, %.o, $(notdir $(SOURCES))))
+# # define the sources and objects
+# SOURCES := $(shell find $(LOCAL_PATH)/ -name "*.c")
+# OBJS := $(addprefix $(OBJ_DIR)/, $(patsubst %.c, %.o, $(notdir $(SOURCES))))
 
 all: prepare main
 
