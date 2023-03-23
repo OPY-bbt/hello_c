@@ -1,8 +1,14 @@
+// lib
 // gcc -c function.cpp
 // ar -r lib_function.lib function.o 生成静态链接库
 // gcc -o main.exe main.cpp lib_function.lib -lstdc++ 或者
 // 使用-L选项指定静态库的路径，使用-l选项指定静态库的名称（不包括lib和.a），例如：gcc -o test.out test.c -L. -ltestlib：
 // gcc -o main.exe main.cpp -L. -llib_function -lstdc++
+
+// dll
+// gcc -c function.cpp
+// gcc function.o -shared -fPIC -Wall -o lib_function.dll -lstdc++
+
 
 #include <iostream>
 
