@@ -1,21 +1,20 @@
 #include <iostream>
-
+#include <locale>
 #include "windows.h"
 #include "function.h"
 
 BOOL CALLBACK EnumWindowsProc(HWND hwnd, LPARAM lParam) {
   // 获取窗口名
-  LPWSTR windowName;
+  wchar_t *windowName = new wchar_t[128];
   GetWindowTextW(hwnd, windowName, sizeof(windowName));
 
-
-  LPWSTR targetName = L"滚滚滚";
+  const wchar_t *targetName = L"滚滚滚";
 
   // 判断窗口名是否包含chrome
   if (wcsstr(windowName, targetName) != NULL)
   {
       // 打印窗口名
-      printf("%s\n", windowName);
+      wprintf(L"find window: %s \n", targetName);
 
       // 使用FindWindow函数查找匹配的窗口句柄
       HWND hDesigner = FindWindowW(NULL, windowName);
@@ -62,6 +61,7 @@ int func() {
   // } else {
   //   std::cout << "can't find designer window \n";
   // }
+  setlocale(LC_ALL, "chs");
   EnumWindows(EnumWindowsProc, 0);
 
   // char str[] = "滚滚滚";
