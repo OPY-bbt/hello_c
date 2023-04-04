@@ -21,10 +21,10 @@ prepare:
 	@if [ ! -d $(BUILD_DIR) ]; then mkdir -p $(BUILD_DIR); fi;\
 
 main: main.o function.o
-	gcc $(BUILD_DIR)/main.o $(BUILD_DIR)/function.o -o $(BUILD_DIR)/main.exe -lstdc++
+	gcc $(BUILD_DIR)/main.o $(BUILD_DIR)/function.o -o $(BUILD_DIR)/main.exe -lstdc++ -lwsock32 -ldnsapi
 
 main.o:
-	gcc main.cpp -c -o $(BUILD_DIR)/main.o -lstdc++
+	gcc main.cpp -c -o $(BUILD_DIR)/main.o -lstdc++ -lwsock32 -ldnsapi
 
 function.o:
 	gcc function.cpp -c -o $(BUILD_DIR)/function.o -lstdc++
